@@ -5,11 +5,10 @@ import {Videos, ChannelCard} from './';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 
-
 const ChannelDetail = () => {
   const [ChannelDetail, setChannelDetail] =useState(null);
   const [videos, setVideos]=useState([])
-
+  
   return (
     <Box minHeight='95vh'>
       <Box>
