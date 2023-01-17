@@ -18,7 +18,7 @@ const VideoDetail = () => {
     fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
      .then((data)=> setVideos(data.items));
   },[id])
-
+  if (!videoDetail?.snippet) return 'Loading....';
   const {snippet:{ title, channelId, channelTitle }, statistics:{viewCount, likeCount}} =videoDetail;
   return (
     <Box minHeight='95vh'>
@@ -48,7 +48,9 @@ const VideoDetail = () => {
              </Stack>
           </Box>
         </Box>
-{/*  video component*/}
+        <Box px={2} py={{md:1, xs:5}} justifyContent='center' alignItems='center'>
+          <Videos videos={videos} direction='column'/>
+        </Box>
       </Stack>
     </Box>
   )
